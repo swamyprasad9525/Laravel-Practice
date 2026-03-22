@@ -1,0 +1,1 @@
+<h1>Hi I am inside the student view</h1>
