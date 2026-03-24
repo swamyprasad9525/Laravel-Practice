@@ -12,6 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->alias(['checkage'=>'App\Http\Middleware\EImiddleware']);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
