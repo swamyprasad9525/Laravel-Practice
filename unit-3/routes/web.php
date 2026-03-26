@@ -6,6 +6,7 @@ use App\Http\Controllers\InvokableEIController;
 use App\Http\Controllers\ResourceEIController;
 use App\Http\Controllers\APIEIController;
 use App\Http\Controllers\MiddlewareEIController;
+use App\Http\Controllers\Globalcontroller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,14 @@ Route::apiResource('api', APIEIController::class);
 //step7:add middleware in route of controller
 //step8:run your url 
 Route::get('/middleware', [MiddlewareEIController::class, 'display'])->middleware('checkage');
+Route::get('/home',[Globalcontroller::class,'privacy']);
+
+//Template (yield,section)
+
+
+Route::get('/login', function () {
+    return view('Login');
+});
+Route::get('/logout', function () {
+    return view('Logout');
+});
