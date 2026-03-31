@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //
         $middleware->alias(['checkage'=>'App\Http\Middleware\EImiddleware']);
         // $middleware->append(GlobalEIMiddleware::class);
+        // $middleware->alias(['checkingage'=>\App\Http\Middleware\ConstructEIController::class,]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

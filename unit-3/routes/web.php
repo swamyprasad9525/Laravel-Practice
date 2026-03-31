@@ -7,6 +7,8 @@ use App\Http\Controllers\ResourceEIController;
 use App\Http\Controllers\APIEIController;
 use App\Http\Controllers\MiddlewareEIController;
 use App\Http\Controllers\Globalcontroller;
+use App\Http\Controllers\ConstructEIController;
+use App\Http\Controllers\Simplecontroller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,4 +45,51 @@ Route::get('/login', function () {
 });
 Route::get('/logout', function () {
     return view('Logout');
+});
+
+
+//constrocter Middleware
+Route::get('/constrouct',[ConstructEIController::class,'success']);
+
+//QUESTION:::::::::::::::::::::::::::::::::::::
+//create a middleware by a 3 ways custom ,global and controller in 1st one u have to add a contraint on the username
+//if username is admin then only it will open the controller function in 2nd middleware u have to give middleware constraints
+//as country .is country is india then it will open the controlller function and in 3rd one you have to create a middleware 
+//and you have to give constraints together in the controller function and then only it will open the controller function.
+
+//blade templetes
+Route::get('/success',function(){
+    $age=20;
+    return view('success',['age'=>$age]);
+});
+
+//php output
+Route::get('/success',function(){
+    $age=20;
+    $name="swami";
+    //1
+    echo "The age is".$age;
+    //2
+    var_dump($age);
+    var_dump($name);
+    //3
+    print_r($age);
+    print_r($name);
+
+});
+
+//Group prefix with controller
+Route::prefix('master')->controller(Simplecontroller::class)->group(function(){
+
+    Route::get('/user','user');
+    Route::get('/admin/{$id}','admin');
+
+});
+
+//Group without prefix with controller
+Route::controller(Simplecontroller::class)->group(function(){
+
+    Route::get('/user','user');
+    Route::get('/admin/{$id}','admin');
+
 });
