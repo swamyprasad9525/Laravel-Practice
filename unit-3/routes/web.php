@@ -93,3 +93,47 @@ Route::controller(Simplecontroller::class)->group(function(){
     Route::get('/admin/{$id}','admin');
 
 });
+
+//Adding constrains locally
+// Route::prefix('master')->controller(Simplecontroller::class)->group(function(){
+
+//     Route::get('/user','user');
+//     Route::get('/admin/{$id}','admin')->where('id','[0-9]+');
+//     Route::get('/techer/{$id}','techer')->whereNumber('id') ;
+
+// });
+
+//adding constrains globally
+Route::controller(Simplecontroller::class)->group(function(){
+
+    Route::get('/user','user');
+    Route::get('/admin/{$id}','admin');
+    Route::get('/techer/{$id}','techer') ;
+
+});
+
+//Domin routing
+// Route::domain('admin.localhost')->group(function(){
+
+//     Route::get('/uvw',function(){
+//         return "Hi i am admin";
+//     });
+//     Route::get('/qrs',function(){
+//             return "Hi i am user";
+//     });
+// });
+//run your url via
+//http://admin.localhost:8000/uvw
+//http://admin.localhost:8000/qrs
+
+//named route
+Route::get('/u',function(){
+    return view('hello');
+});
+Route::get('/dashboard/user/myproject/sample',[Simplecontroller::class,'user'])->name('myuser');
+// Route::get('/admin',[FirstEIController::class,'admin']);
+// Route::get('/techer',[FirstEIController::class,'techer']);
+
+//create a controller in the controller pass an array values which showse name rollnum whan you add url with rollnum it will display the name 
+//create two views in side parent layout and two views out side parent layout ,in the parent laylout there will be navigation wich can be inhereted  by cherent views childern view must contain diffenrt futtenr section 1 fotter is green and anouther is red.
+
