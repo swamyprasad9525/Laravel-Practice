@@ -8,7 +8,8 @@ class Simplecontroller extends Controller
 {
     public function user(){
         // return response("Hi i am user");
-        return view('dashbord');
+        // return view('dashbord');
+        return view('generatingFrameworks');
     }
     // public function admin($id){
     //     return "Hi i am admin".$id;
@@ -16,4 +17,9 @@ class Simplecontroller extends Controller
     // public function techer($id){
     //     return "Hi i am techer".$id;
     // }
+    public function data(){
+        // return "This is second function";
+        return view('testingurl');
+
+    }
 }

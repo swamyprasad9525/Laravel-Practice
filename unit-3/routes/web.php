@@ -137,3 +137,19 @@ Route::get('/dashboard/user/myproject/sample',[Simplecontroller::class,'user'])-
 //create a controller in the controller pass an array values which showse name rollnum whan you add url with rollnum it will display the name 
 //create two views in side parent layout and two views out side parent layout ,in the parent laylout there will be navigation wich can be inhereted  by cherent views childern view must contain diffenrt futtenr section 1 fotter is green and anouther is red.
 
+//url Generation
+Route::get('/home',function(){
+    return view('testingurl');
+});
+
+//Generating Frameworks - named route , url , action
+Route::get('/user',[Simplecontroller::class,'user']);
+Route::get('/data',[Simplecontroller::class,'data']);
+
+//different between seeder and factory
+//craete 4 controllers called basic controller ,demo , class,practice controllers inside all controllers y have to create 2 2 functions 
+//in 1st cont y have to render 2views called ai and web inthe ai view y have to add inline images of 3 robotes and web view y have to add 
+//your profile diteals in italic syntesis for the 2nd controller y have to render 2 views called parent and child there showe case the working of template inheritence 
+//in 3rd cintroller y have to render 2 views called placements and teching in placement view y have to showcase 10 students in unorderd list 
+//in teching you have to make the use constrains with url end r
+//last controller will showe how middilewar is applied  
