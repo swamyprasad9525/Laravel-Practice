@@ -37,8 +37,10 @@ Route::apiResource('api', APIEIController::class);
 Route::get('/middleware', [MiddlewareEIController::class, 'display'])->middleware('checkage');
 Route::get('/home',[Globalcontroller::class,'privacy']);
 
-//Template (yield,section)
+//constrocter Middleware
+Route::get('/constrouct',[ConstructEIController::class,'success']);
 
+//Template (yield,section)
 
 Route::get('/login', function () {
     return view('Login');
@@ -47,9 +49,12 @@ Route::get('/logout', function () {
     return view('Logout');
 });
 
+//blade templetes
+Route::get('/success',function(){
+    $age=20;
+    return view('success',['age'=>$age]);
+});
 
-//constrocter Middleware
-Route::get('/constrouct',[ConstructEIController::class,'success']);
 
 //QUESTION:::::::::::::::::::::::::::::::::::::
 //create a middleware by a 3 ways custom ,global and controller in 1st one u have to add a contraint on the username
@@ -57,11 +62,6 @@ Route::get('/constrouct',[ConstructEIController::class,'success']);
 //as country .is country is india then it will open the controlller function and in 3rd one you have to create a middleware 
 //and you have to give constraints together in the controller function and then only it will open the controller function.
 
-//blade templetes
-Route::get('/success',function(){
-    $age=20;
-    return view('success',['age'=>$age]);
-});
 
 //php output
 Route::get('/success',function(){
@@ -104,6 +104,7 @@ Route::controller(Simplecontroller::class)->group(function(){
 // });
 
 //adding constrains globally
+//open AppServiceProvider in app/provider folder and add the constrains in boot function Route::pattern();
 Route::controller(Simplecontroller::class)->group(function(){
 
     Route::get('/user','user');
