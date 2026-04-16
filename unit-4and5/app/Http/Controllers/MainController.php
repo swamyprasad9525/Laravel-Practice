@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    //
+    //CA1: display course name based on course id
     public function display(Request $request)
     {   
     $course=[1=>'c', 2=>'c++', 3=>'c', 4=>'Per1'];

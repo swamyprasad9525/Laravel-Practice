@@ -1,3 +1,4 @@
+<h1>CA1</h1>
 <h1>Selected Course</h1>
 <p>course ID: {{ $CoursesID }} </p>
 <p>course Name: {{ $courseName }}</p>
