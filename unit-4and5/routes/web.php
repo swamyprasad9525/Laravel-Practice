@@ -5,9 +5,9 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\FromEIController;
 use App\Http\Controllers\UploadEIController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/course/{id}', [MainController::class, 'display']);
 
@@ -37,3 +37,21 @@ Route::get('/home',function(){
     return view('home');
 });
 //implement 5 different languages tamil,telugu, marathi, gugarathi, english in your code content moust be your name and age
+
+
+//dynamic localization
+Route::get('/lang/{locale}',function($locale){
+    session(['locale'=>$locale]);
+    return redirect()->back();
+});
+//Another way to implement localization dynamically
+// Route::get('/', function () {
+//     return view('home'); // your blade file
+// });
+
+// Route::get('/lang/{locale}', function ($locale) {
+//     session(['locale' => $locale]);
+//     return redirect('/');
+// });
+
+//***sending emails

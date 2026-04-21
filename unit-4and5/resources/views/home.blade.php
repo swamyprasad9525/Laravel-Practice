@@ -9,4 +9,13 @@
     <h1>{{__('messages.welcome')}}</h1>
     <h1>{{__('messages.about')}}</h1>
 </body>
+<form >
+    <select onchange="window.location.href=this.value">
+        <option>select</option>
+        <option value="/lang/en">English</option>
+        <option value="/lang/hi">Hindi</option>
+        <option value="/lang/pa">Punjabi</option>
+        <option value="/lang/ta">Tamil</option>
+    </select>
+</form>
 </html>
