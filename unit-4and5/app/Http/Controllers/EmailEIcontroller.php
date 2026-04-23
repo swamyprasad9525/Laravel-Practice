@@ -14,6 +14,7 @@ class EmailEIcontroller extends Controller
             'name'=>'swamiprasad',
             'subject'=>'refer the mail',
             ];
-        Mail::to('kolliswamiprasad@gmail.com')->send(new TestingEIMail($data));
+        Mail::to('kolliswami784@gmail.com')->send(new TestingEIMail($data));
+        return "mail sent successfully";
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\FromEIController;
 use App\Http\Controllers\UploadEIController;
-
+use App\Http\Controllers\EmailEIcontroller;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -55,3 +55,5 @@ Route::get('/lang/{locale}',function($locale){
 // });
 
 //***sending emails
+
+Route::get('/send', [EmailEIcontroller::class, 'send']);
