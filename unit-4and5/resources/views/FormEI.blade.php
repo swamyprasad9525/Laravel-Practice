@@ -15,7 +15,7 @@
         @error('name')
             <div style="color:red">{{ $message }}</div>
         @enderror
-
+        
         <br>
         <label>enter Email</label>
         <input type="text" name="email" value="{{ old('email') }}">

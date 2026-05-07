@@ -5,12 +5,15 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\FromEIController;
 use App\Http\Controllers\UploadEIController;
 use App\Http\Controllers\EmailEIcontroller;
+use App\Http\Controllers\SessionEIController;
+use App\Http\Controllers\ValidationEIController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+//CA
 Route::get('/course/{id}', [MainController::class, 'display']);
 
+//form validation with in-built function
 // 1.creation of basic form -view
 // 2.creation of controller with form view
 // 3.create route for same
@@ -23,6 +26,7 @@ Route::get('/course/{id}', [MainController::class, 'display']);
 Route::get('/abc', [FromEIController::class, 'show']);
 Route::post('/submit', [FromEIController::class, 'showFrom']);
 
+//file upload
 Route::get('/abcd', [UploadEIController::class, 'show']);
 Route::post('/upload', [UploadEIController::class, 'upload']);
 
@@ -57,3 +61,26 @@ Route::get('/lang/{locale}',function($locale){
 //***sending emails
 
 Route::get('/send', [EmailEIcontroller::class, 'send']);
+
+//session
+//31 line chnage it to 1 and go to config session.php chnage 120 to 1
+//php artisan config:clear ,php artisan cache:clear in terminal
+//step1:create a basic form with input filed text, add name in your field , dont forget to add csrf
+//step2:create controller and add 2 function inside it
+//a)make use of request data retrieval from session inside first function for setting session value(put)
+//b)inside second function ,you can use fluse for deleting the session 
+//step3:create session view, which displays the value on webpage as per session
+//step4:add routes and suitable imports in 
+
+Route::view('/loginform','myform');
+Route::post('/submit',[SessionEIController::class,'login']);
+Route::get('/form',function(){
+    return view('sessionEI');
+});
+Route::get('/logout',[SessionEIController::class,'logout']);
+
+//custom validation
+Route::get('/validate', function(){
+    return view('MyEIForm');
+});
+Route::post('/submit', [ValidationEIController::class, 'validate']);
