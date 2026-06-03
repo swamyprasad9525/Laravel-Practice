@@ -13,10 +13,10 @@
         @error('name')
         <p style="color: red;">{{ $message }}</p>
         @enderror
+        <input type="text" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
         @error('email')
         <p style="color: red;">{{ $message }}</p>
         @enderror
-        <input type="text" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
         <button type="submit">Submit</button>
     </form>
 </body>

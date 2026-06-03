@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class UploadEIController extends Controller
 {
     //
-    public function show()
-    {
-        return view('uploadEI');
-    }
+    // public function show()
+    // {
+    //     return view('uploadEI');
+    // }
     public function upload(Request $response){
         $response->validate([
             'file'=>'required|mimes:pdf,docx,txt'

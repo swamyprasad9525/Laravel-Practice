@@ -33,7 +33,7 @@ class FromEIController extends Controller
 
         //3.via all()
         $data=$request->all();
-        return "The name is :". ($name ?? 'missing data') . ", Email is : " . ($email ?? 'missing data') . ", Phone is : " . ($phone ?? 'missing data');
+        return "The name is :". ($data['name'] ?? 'missing data') . ", Email is : " . ($data['email'] ?? 'missing data') . ", Phone is : " . ($data['phone'] ?? 'missing data');
 
 
     }

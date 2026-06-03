@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SessionEIController extends Controller
 {
-    public function login(Request $request){
+    public function loginn(Request $request){
         //adding or setting session value to form input field
         $request->session()->put('name', $request->input('user'));
         return redirect('/form');

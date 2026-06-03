@@ -27,7 +27,10 @@ Route::get('/abc', [FromEIController::class, 'show']);
 Route::post('/submit', [FromEIController::class, 'showFrom']);
 
 //file upload
-Route::get('/abcd', [UploadEIController::class, 'show']);
+// Route::get('/abcd', [UploadEIController::class, 'show']);
+Route::get('/abcd', function(){
+    return view('uploadEI');
+});
 Route::post('/upload', [UploadEIController::class, 'upload']);
 
 //localigation (seeing the website in different language)
@@ -73,7 +76,7 @@ Route::get('/send', [EmailEIcontroller::class, 'send']);
 //step4:add routes and suitable imports in 
 
 Route::view('/loginform','myform');
-Route::post('/submit',[SessionEIController::class,'login']);
+Route::post('/submitt',[SessionEIController::class,'loginn']);
 Route::get('/form',function(){
     return view('sessionEI');
 });

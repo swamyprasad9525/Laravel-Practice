@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form action="/submitt" method="POST">
         @csrf
         <input type="text" name="user" placeholder="Enter name"><br>
         <button type="submit">Submit</button>
